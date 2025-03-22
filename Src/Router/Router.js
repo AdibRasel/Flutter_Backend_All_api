@@ -3,6 +3,9 @@ const CRUDController = require("../Controller/CRUDController");
 
 const Router = express.Router();
 
+
+// =========================== CRUD Operation Start ===========================
+
 // Create a new record
 Router.post("/create", CRUDController.CreateCrud);
 
@@ -17,5 +20,15 @@ Router.put("/update/:id", CRUDController.UpdateCrud);
 
 // Delete a record by ID
 Router.delete("/delete/:id", CRUDController.CrudDelete);
+
+// =========================== CRUD Operation End ===========================
+
+
+
+
+
+
+
+
 
 module.exports = Router;

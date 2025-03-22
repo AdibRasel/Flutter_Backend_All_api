@@ -57,12 +57,17 @@ App.use(Limiter)
 App.use(express.urlencoded({ extended: true }));
 
 // Mongo DB Database Connection 
-const UriTwo = "mongodb://127.0.0.1:27017/Flutter_CRUD_Project";
-// mongodb+srv://Rasal_Hossain:<password>@cluster0.u9f9cje.mongodb.net/
+const UserName = process.env.DataBaseUser;
+const Password = process.env.DataBasePassword;
 
+const UriOne = `mongodb+srv://${UserName}:${Password}@cluster0.3vyve.mongodb.net/Flutter_Backend_All_api?retryWrites=true&w=majority&appName=Cluster0`;
+
+
+
+const UriTwo = "mongodb://127.0.0.1:27017/Flutter_CRUD_Project";
 
 //=====================
-mongoose.connect(UriTwo, {
+mongoose.connect(UriOne, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
