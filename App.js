@@ -19,13 +19,11 @@ const Helmet = require("helmet")
 const MongoSanitize = require("express-mongo-sanitize");
 const Xss = require("xss-clean");
 const Hpp = require("hpp");
-const Cors = require("cors");
 
 
 
 
 // Security Middleware Implement 
-App.use(Cors())
 App.use(Helmet())
 App.use(MongoSanitize())
 App.use(Xss())
