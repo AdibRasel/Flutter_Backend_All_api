@@ -73,11 +73,6 @@ mongoose.connect(process.env.MONGO_URI, {
 
 
 
-// Backend Host link s
-// https://containers.back4app.com/new-container
-
-//vercel
-
 
 // API Create, Or Routing Implement
 App.use("/api/v1", Router)
