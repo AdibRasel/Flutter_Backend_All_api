@@ -1,12 +1,11 @@
 
-const AuthVerifyMiddleware = require("../Middleware/AuthVerifyMiddleware");
+const LoginMiddleware = require("../Middleware/LoginMiddleware");
 const TaskManagerModel = require("../Model/TaskManagerModel");
 const AllDataListService = require("../Service/AllDataListService");
 const CreateService = require("../Service/CreateService");
 const DeleteWithID = require("../Service/DeleteWithID");
 const ReadWithIDService = require("../Service/ReadWithIDService");
 const UpdateWithID = require("../Service/UpdateWithID");
-// const AuthVerifyMiddleware = require("../../Middleware/AuthVerifyMiddleware.js");
 
 
 
@@ -20,7 +19,7 @@ exports.Registration = async (req, res) => {
 // Login
 exports.Login = async (req, res) => {
     try {
-        await AuthVerifyMiddleware(req, res, TaskManagerModel);
+        await LoginMiddleware(req, res, TaskManagerModel);
     } catch (error) {
         return res.status(500).json({ status: "Internal Server Error", message: "Login verification failed" });
     }
