@@ -1,10 +1,17 @@
 const express = require('express');
 const CRUDController = require("../Controller/CRUDController");
+const TaskManagerController = require("../Controller/TaskManagerController");
 
 const Router = express.Router();
 
 
+//api link
+// https://flutter-backend-all-api.onrender.com/api/v1/
+
+
+
 // =========================== CRUD Operation Start ===========================
+
 
 // Create a new record
 Router.post("/create", CRUDController.CreateCrud);
@@ -22,6 +29,31 @@ Router.put("/update/:id", CRUDController.UpdateCrud);
 Router.delete("/delete/:id", CRUDController.CrudDelete);
 
 // =========================== CRUD Operation End ===========================
+
+
+
+
+
+
+
+
+
+// =========================== Task Manager End ===========================
+
+// Registration
+Router.post("/registration", TaskManagerController.Registration);
+
+// Login
+Router.post("/login", TaskManagerController.Login);
+
+
+
+
+
+
+
+// =========================== Task Manager End ===========================
+
 
 
 
