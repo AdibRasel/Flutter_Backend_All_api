@@ -10,6 +10,7 @@ const ReadWithIDService = require("../Service/ReadWithIDService");
 const TaskStatusCount = require("../Service/TaskStatusCount");
 const TaskStatusUpdate = require("../Service/TaskStatusUpdate");
 const UpdateWithID = require("../Service/UpdateWithID");
+const UserDeleteWithID = require("../Service/UserDeleteWithID");
 const UserTaskUpdateService = require("../Service/UserTaskUpdateService");
 const UserUpdateWithID = require("../Service/UserUpdateWithID");
 
@@ -52,6 +53,13 @@ exports.CreateTask = async (req, res) => {
 // Task Update
 exports.TaskUpdate = async (req, res) => {
     let Result = await UserTaskUpdateService(req, TaskModel);
+    res.status(200).json(Result);
+};
+
+
+// Delete a record by ID
+exports.TaskDelete = async (req, res) => {
+    let Result = await UserDeleteWithID(req, TaskModel);
     res.status(200).json(Result);
 };
 

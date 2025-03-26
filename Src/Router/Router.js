@@ -1,6 +1,7 @@
 const express = require('express');
 const CRUDController = require("../Controller/CRUDController");
 const TaskManagerController = require("../Controller/TaskManagerController");
+const ResetPasswordController = require("../ResetPassword/ResetPasswordController");
 const LoginVerifyMiddleware = require('../Middleware/LoginVerifyMiddleware');
 
 const Router = express.Router();
@@ -56,6 +57,10 @@ Router.post("/createTask", LoginVerifyMiddleware, TaskManagerController.CreateTa
 // Task Update
 Router.post("/taskUpdate/:id", LoginVerifyMiddleware, TaskManagerController.TaskUpdate);
 
+
+// Task Delete by ID
+Router.delete("/taskDelete/:id", TaskManagerController.TaskDelete);
+
 // Only Task Status Update
 Router.get("/updateTaskStatus/:id/:status", LoginVerifyMiddleware, TaskManagerController.TaskStatusUpdate);
 
@@ -66,7 +71,20 @@ Router.get("/listTaskByStatus/:status", LoginVerifyMiddleware, TaskManagerContro
 Router.get("/taskStatusCount", LoginVerifyMiddleware, TaskManagerController.TaskStatusCount);
 
 
+// ================================ Reset Password Start ============================
+// Recover Verify Email setp 1 প্রথমে ইমেইল যাচাই করবে আছে কি না, থাকলে ইমেলে একটি ৬ ডিজিটের কোড পাঠাবে।
+// otp মডেলে status কোড 0 করবে। 
+Router.get("/RecoverVerifyEmail/:email" , ResetPasswordController.RecoverVerifyEmail)
 
+// Recover Verify OTP setp 2। otp মডেলে গিয়ে ইমেলের  otp যাচাই করবে এবং ইমেল যাচাই করবে। 
+// otp মডেলে status কোড 1 করবে। 
+Router.get("/RecoverVerifyOTP/:email/:otp", ResetPasswordController.RecoverVerifyOTP);
+
+// Recover Verify OTP & Change Password setp 3
+// otp মডেলে গিয়ে খুজবে ইমেল আর otp কোড, সাথে status code 1 আছে কি না, 
+// ঠিক থাকলে পাসওয়ার্ড চ্যঞ্জ করবে সাথে otp মডেলে status কোড আবার 0 করে দিবে। 
+Router.post("/RecoverResetPass", ResetPasswordController.RecoverResetPass);
+// ================================ Reset Password End ============================
 
 
 
