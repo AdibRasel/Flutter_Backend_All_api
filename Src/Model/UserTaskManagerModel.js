@@ -10,5 +10,5 @@ const DataSchema = mongoose.Schema({
     createdDate: { type: Date, default: Date.now }
 }, { versionKey: false });
 
-const TaskManagerModel = mongoose.model("Task_Manager_Project", DataSchema);
-module.exports = TaskManagerModel;
+const UserTaskManagerModel = mongoose.model("User_Task_Manager_Project", DataSchema);
+module.exports = UserTaskManagerModel;

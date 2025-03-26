@@ -1,6 +1,7 @@
 const express = require('express');
 const CRUDController = require("../Controller/CRUDController");
 const TaskManagerController = require("../Controller/TaskManagerController");
+const LoginVerifyMiddleware = require('../Middleware/LoginVerifyMiddleware');
 
 const Router = express.Router();
 
@@ -45,6 +46,21 @@ Router.post("/registration", TaskManagerController.Registration);
 
 // Login
 Router.post("/login", TaskManagerController.Login);
+
+// Profile Update
+Router.post("/profileUpdate/:id", LoginVerifyMiddleware, TaskManagerController.ProfileUpdate);
+
+// Create Task
+Router.post("/createTask", LoginVerifyMiddleware, TaskManagerController.CreateTask);
+
+// Task Update
+Router.post("/taskUpdate/:id", LoginVerifyMiddleware, TaskManagerController.TaskUpdate);
+
+// Task Status Update
+Router.get("/updateTaskStatus/:id/:status", LoginVerifyMiddleware, TaskManagerController.TaskStatusUpdate);
+
+// Task Status Update
+Router.get("/listTaskByStatus/:status", LoginVerifyMiddleware, TaskManagerController.ListTaskByStatus);
 
 
 

@@ -20,7 +20,7 @@ module.exports = async (Req, Res, TaskManagerModel) => {
             );
 
             // Prepare user info
-            const userInfo = {
+            const data = {
                 fullName: `${user.firstName} ${user.lastName}`,
                 userId: user._id,
                 mobile: user.mobile,
@@ -29,7 +29,7 @@ module.exports = async (Req, Res, TaskManagerModel) => {
                 createdDate: user.createdDate
             };
 
-            return Res.status(200).json({ status: "success", token, userInfo });
+            return Res.status(200).json({ status: "success", token, data });
         } else {
             return Res.status(400).json({ status: "failed", message: "Invalid password" });
         }
