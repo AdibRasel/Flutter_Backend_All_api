@@ -56,11 +56,14 @@ Router.post("/createTask", LoginVerifyMiddleware, TaskManagerController.CreateTa
 // Task Update
 Router.post("/taskUpdate/:id", LoginVerifyMiddleware, TaskManagerController.TaskUpdate);
 
-// Task Status Update
+// Only Task Status Update
 Router.get("/updateTaskStatus/:id/:status", LoginVerifyMiddleware, TaskManagerController.TaskStatusUpdate);
 
 // Task Status Update
 Router.get("/listTaskByStatus/:status", LoginVerifyMiddleware, TaskManagerController.ListTaskByStatus);
+
+// Task Status Update
+Router.get("/taskStatusCount", LoginVerifyMiddleware, TaskManagerController.TaskStatusCount);
 
 
 

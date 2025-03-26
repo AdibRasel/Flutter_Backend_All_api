@@ -7,8 +7,11 @@ const CreateService = require("../Service/CreateService");
 const DeleteWithID = require("../Service/DeleteWithID");
 const ListTaskByStatus = require("../Service/ListTaskByStatus");
 const ReadWithIDService = require("../Service/ReadWithIDService");
+const TaskStatusCount = require("../Service/TaskStatusCount");
 const TaskStatusUpdate = require("../Service/TaskStatusUpdate");
 const UpdateWithID = require("../Service/UpdateWithID");
+const UserTaskUpdateService = require("../Service/UserTaskUpdateService");
+const UserUpdateWithID = require("../Service/UserUpdateWithID");
 
 
 
@@ -34,7 +37,7 @@ exports.Login = async (req, res) => {
 
 // Profile Update by ID
 exports.ProfileUpdate = async (req, res) => {
-    let Result = await UpdateWithID(req, UserTaskManagerModel);
+    let Result = await UserUpdateWithID(req, UserTaskManagerModel);
     res.status(200).json(Result);
 };
 
@@ -48,7 +51,7 @@ exports.CreateTask = async (req, res) => {
 
 // Task Update
 exports.TaskUpdate = async (req, res) => {
-    let Result = await UpdateWithID(req, TaskModel);
+    let Result = await UserTaskUpdateService(req, TaskModel);
     res.status(200).json(Result);
 };
 
@@ -61,5 +64,11 @@ exports.TaskStatusUpdate = async (req, res) => {
 // Task Status Update
 exports.ListTaskByStatus = async (req, res) => {
     let Result = await ListTaskByStatus(req, TaskModel);
+    res.status(200).json(Result);
+};
+
+// Task Status Count
+exports.TaskStatusCount = async (req, res) => {
+    let Result = await TaskStatusCount(req, TaskModel);
     res.status(200).json(Result);
 };

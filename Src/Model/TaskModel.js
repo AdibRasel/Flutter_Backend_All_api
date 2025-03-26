@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const DataSchema = mongoose.Schema({
+    UserID: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // MongoDB ObjectId
     createdEmail: { type: String },
     createdName: { type: String },
     title: { type: String },
