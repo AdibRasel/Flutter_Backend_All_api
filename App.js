@@ -19,7 +19,7 @@ const Helmet = require("helmet")
 const MongoSanitize = require("express-mongo-sanitize");
 const Xss = require("xss-clean");
 const Hpp = require("hpp");
-
+const cors = require('cors');
 
 
 
@@ -28,7 +28,7 @@ App.use(Helmet())
 App.use(MongoSanitize())
 App.use(Xss())
 App.use(Hpp())
-
+App.use(cors());
 
 App.use(express.json({ limit: '20mb' }));
 
