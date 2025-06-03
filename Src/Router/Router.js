@@ -3,6 +3,7 @@ const CRUDController = require("../Controller/CRUDController");
 const TaskManagerController = require("../Controller/TaskManagerController");
 const ResetPasswordController = require("../ResetPassword/ResetPasswordController");
 const LoginVerifyMiddleware = require('../Middleware/LoginVerifyMiddleware');
+const { CourseEnrollmentConfirmationEmail } = require('../ResetPassword/EmailSendController');
 
 const Router = express.Router();
 
@@ -87,6 +88,10 @@ Router.post("/RecoverResetPass", ResetPasswordController.RecoverResetPass);
 // ================================ Reset Password End ============================
 
 
+
+// =================================== Only Email Send Start ===============================
+Router.post("/CourseEnrollmentConfirmationEmail", CourseEnrollmentConfirmationEmail)
+// =================================== Only Email Send End ===============================
 
 
 // =========================== Task Manager End ===========================
