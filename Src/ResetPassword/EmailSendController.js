@@ -8,7 +8,7 @@ exports.CourseEnrollmentConfirmationEmail = async (req, res) => {
       address,
       mobile,
       email,
-      photoUrl, // Assume it's already a hosted image URL
+      photoUrl, 
     } = req.body;
 
     const currentYear = new Date().getFullYear();
@@ -54,7 +54,7 @@ exports.CourseEnrollmentConfirmationEmail = async (req, res) => {
               </tr>
               <tr>
                 <td align="center" style="background-color: #f1f1f1; padding: 15px; font-size: 12px; color: #888888;">
-                  © ${currentYear} Imo Holidays. All rights reserved.
+                  © ${currentYear} ZeroLogy. All rights reserved.
                 </td>
               </tr>
             </table>

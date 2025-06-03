@@ -23,7 +23,7 @@ const EmailSend = async (EmailTo, EmailText, EmailSubject) => {
 
 
     let mailOptions = {
-        from: 'Task Manager Project <adibrasel.com@gmail.com>',
+        from: 'ZeroLogy Team <adibrasel.com@gmail.com>',
         to: EmailTo,
         subject: EmailSubject,
         html: EmailText
