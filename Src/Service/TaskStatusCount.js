@@ -29,7 +29,7 @@ const TaskStatusCount = async (Request, DataModel) => {
 
         // Initialize all statuses with 0
         let statusCounts = {
-            Canceled: 0,
+            Canceld: 0,
             Completed: 0,
             Progress: 0,
             New: 0
